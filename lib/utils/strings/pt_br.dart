@@ -38,4 +38,11 @@ class PtBr implements Translation {
   String get signUpPasswordError => 'Senha inválida';
   @override
   String get signUpButton => 'Entrar';
+
+  @override
+  String get homePopularMovies => 'Poupalares';
+  @override
+  String get homeTopRated => 'Bem avaliados';
+  @override
+  String get homeUpIncoming => 'Próximos lançamentos';
 }

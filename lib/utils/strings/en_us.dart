@@ -38,4 +38,11 @@ class EnUs implements Translation {
   String get signUpPasswordError => 'Invalid password';
   @override
   String get signUpButton => 'Sign up';
+
+  @override
+  String get homePopularMovies => 'Popular';
+  @override
+  String get homeTopRated => 'Top Rated';
+  @override
+  String get homeUpIncoming => 'Upcoming';
 }

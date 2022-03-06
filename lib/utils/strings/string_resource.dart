@@ -38,4 +38,8 @@ abstract class Translation {
   String get signUpPassword;
   String get signUpPasswordError;
   String get signUpButton;
+
+  String get homePopularMovies;
+  String get homeTopRated;
+  String get homeUpIncoming;
 }
