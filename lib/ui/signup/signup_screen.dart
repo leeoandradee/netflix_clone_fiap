@@ -56,6 +56,49 @@ class SignUpScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 10, bottom: 5),
                           child: Obx(
                             () => TextFormField(
+                              autofillHints: const [AutofillHints.newUsername],
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5)),
+                                contentPadding:
+                                    const EdgeInsets.fromLTRB(32, 4, 32, 4),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffced0d4)),
+                                ),
+                                errorStyle:
+                                    const TextStyle(color: Color(0xffCF6679)),
+                                errorText: presenter.showUsernameInvalid.value
+                                    ? R.string.signUpUsernameError
+                                    : null,
+                                fillColor: const Color(0xff262626),
+                                filled: true,
+                                focusedBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Color(0xff65676B), width: 1.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Color(0xffCF6679)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                hintText: R.string.signUpUsername,
+                                hintStyle:
+                                    const TextStyle(color: Color(0xff65676B)),
+                              ),
+                              enableSuggestions: true,
+                              keyboardType: TextInputType.name,
+                              onChanged: presenter.onUsernameChanged,
+                              style: const TextStyle(color: Colors.white),
+                              textInputAction: TextInputAction.next,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 5),
+                          child: Obx(
+                            () => TextFormField(
                               autofillHints: const [AutofillHints.email],
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(

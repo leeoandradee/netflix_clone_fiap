@@ -33,6 +33,8 @@ abstract class Translation {
   String get signUpFailTitle;
   String get signUpFailDescription;
   String get signUpTitle;
+  String get signUpUsername;
+  String get signUpUsernameError;
   String get signUpEmail;
   String get signUpEmailError;
   String get signUpPassword;

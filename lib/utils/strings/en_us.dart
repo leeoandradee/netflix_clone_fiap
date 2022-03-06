@@ -29,6 +29,10 @@ class EnUs implements Translation {
   @override
   String get signUpTitle => 'Create account';
   @override
+  String get signUpUsername => 'Username';
+  @override
+  String get signUpUsernameError => 'Invalid username';
+  @override
   String get signUpEmail => 'Email';
   @override
   String get signUpEmailError => 'Invalid email';

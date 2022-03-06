@@ -29,6 +29,10 @@ class PtBr implements Translation {
   @override
   String get signUpTitle => 'Criar uma conta';
   @override
+  String get signUpUsername => 'Nome de usuário';
+  @override
+  String get signUpUsernameError => 'Nome de usuário inválido';
+  @override
   String get signUpEmail => 'Email';
   @override
   String get signUpEmailError => 'Email inválido';

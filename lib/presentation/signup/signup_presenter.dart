@@ -9,32 +9,42 @@ class SignUpPresenter extends GetxController {
 
   RegisterWithEmail registerWithEmail;
 
+  RxBool showUsernameInvalid = false.obs;
   RxBool showEmailInvalid = false.obs;
   RxBool showPasswordInvalid = false.obs;
   RxBool signUpButtonIsEnabled = false.obs;
   RxBool showSignUpFailed = false.obs;
 
+  String _username = '';
   String _email = '';
   String _password = '';
 
+  void onUsernameChanged(String username) {
+    _username = username;
+    _checkForm();
+  }
+
   void onEmailChanged(String email) {
     _email = email;
-    _checkEmailAndPassword();
+    _checkForm();
   }
 
   void onPasswordChanged(String password) {
     _password = password;
-    _checkEmailAndPassword();
+    _checkForm();
   }
 
-  void _checkEmailAndPassword() {
+  void _checkForm() {
+    final isUsernameValid = GetUtils.isUsername(_username);
     final isEmailValid = GetUtils.isEmail(_email);
     final isPasswordValid = _password.length > 5;
 
+    showUsernameInvalid.value = !isUsernameValid;
     showEmailInvalid.value = !isEmailValid;
     showPasswordInvalid.value = !isPasswordValid;
 
-    signUpButtonIsEnabled.value = isEmailValid && isPasswordValid;
+    signUpButtonIsEnabled.value =
+        isUsernameValid && isEmailValid && isPasswordValid;
   }
 
   void onSignUp() async {
