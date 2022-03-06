@@ -29,4 +29,13 @@ abstract class Translation {
   String get loginNewUserQuestion;
   String get loginNewUserButton;
   String get loginTitle;
+
+  String get signUpFailTitle;
+  String get signUpFailDescription;
+  String get signUpTitle;
+  String get signUpEmail;
+  String get signUpEmailError;
+  String get signUpPassword;
+  String get signUpPasswordError;
+  String get signUpButton;
 }

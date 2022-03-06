@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:netflix_clone_fiap/presentation/login/login_presenter.dart';
+import 'package:netflix_clone_fiap/presentation/signup/signup_presenter.dart';
 import 'package:netflix_clone_fiap/utils/strings/string_resource.dart';
 
-class LoginScreen extends StatelessWidget {
-  static const String id = '/login_screen';
+class SignUpScreen extends StatelessWidget {
+  static const String id = '/signup_screen';
 
-  const LoginScreen({Key? key, required this.presenter}) : super(key: key);
+  const SignUpScreen({Key? key, required this.presenter}) : super(key: key);
 
-  final LoginPresenter presenter;
+  final SignUpPresenter presenter;
 
   @override
   Widget build(BuildContext context) {
-    presenter.showLoginFailed.listen((show) {
+    presenter.showSignUpFailed.listen((show) {
       if (show) {
         Get.snackbar(
-          R.string.loginFailTitle,
-          R.string.loginFailDescription,
+          R.string.signUpFailTitle,
+          R.string.signUpFailDescription,
           snackPosition: SnackPosition.BOTTOM,
           colorText: Colors.white,
         );
-        presenter.showLoginFailed.value = false;
+        presenter.showSignUpFailed.value = false;
       }
     });
 
@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(top: 10, bottom: 20),
                                 child: Text(
-                                  R.string.loginTitle,
+                                  R.string.signUpTitle,
                                   style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                                 errorStyle:
                                     const TextStyle(color: Color(0xffCF6679)),
                                 errorText: presenter.showEmailInvalid.value
-                                    ? R.string.loginEmailError
+                                    ? R.string.signUpEmailError
                                     : null,
                                 fillColor: const Color(0xff262626),
                                 filled: true,
@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                                       color: Color(0xffCF6679)),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
-                                hintText: R.string.loginEmail,
+                                hintText: R.string.signUpEmail,
                                 hintStyle:
                                     const TextStyle(color: Color(0xff65676B)),
                               ),
@@ -114,7 +114,7 @@ class LoginScreen extends StatelessWidget {
                                 errorStyle:
                                     const TextStyle(color: Color(0xffCF6679)),
                                 errorText: presenter.showPasswordInvalid.value
-                                    ? R.string.loginPasswordError
+                                    ? R.string.signUpPasswordError
                                     : null,
                                 fillColor: const Color(0xff262626),
                                 filled: true,
@@ -127,7 +127,7 @@ class LoginScreen extends StatelessWidget {
                                       color: Color(0xffCF6679)),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
-                                hintText: R.string.loginPassword,
+                                hintText: R.string.signUpPassword,
                                 hintStyle:
                                     const TextStyle(color: Color(0xff65676B)),
                               ),
@@ -149,8 +149,8 @@ class LoginScreen extends StatelessWidget {
                               child: Obx(
                                 () => ElevatedButton(
                                   onPressed:
-                                      presenter.loginButtonIsEnabled.value
-                                          ? presenter.onLoginWithEmail
+                                      presenter.signUpButtonIsEnabled.value
+                                          ? presenter.onSignUp
                                           : null,
                                   style: ButtonStyle(
                                     backgroundColor: MaterialStateProperty
@@ -175,7 +175,7 @@ class LoginScreen extends StatelessWidget {
                                     ),
                                   ),
                                   child: Text(
-                                    R.string.loginButton,
+                                    R.string.signUpButton,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -185,30 +185,6 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ])),
-                      Padding(
-                          padding: const EdgeInsets.only(top: 30, bottom: 5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                R.string.loginNewUserQuestion,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: GestureDetector(
-                                  child: Text(
-                                    R.string.loginNewUserButton,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )),
                     ])))));
   }
 }

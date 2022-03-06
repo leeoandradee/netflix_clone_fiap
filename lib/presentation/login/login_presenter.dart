@@ -1,15 +1,12 @@
 import 'package:get/get.dart';
 import 'package:netflix_clone_fiap/domain/usecases/login/login_with_email.dart';
-import 'package:netflix_clone_fiap/domain/usecases/login/register_with_email.dart';
 import 'package:netflix_clone_fiap/ui/home/home_screen.dart';
 
 class LoginPresenter extends GetxController {
   LoginPresenter({
-    required this.registerWithEmail,
     required this.loginWithEmail,
   });
 
-  RegisterWithEmail registerWithEmail;
   LoginWithEmail loginWithEmail;
 
   RxBool showEmailInvalid = false.obs;
@@ -32,8 +29,6 @@ class LoginPresenter extends GetxController {
 
   void onLoginWithEmail() async {
     var user = await loginWithEmail.execute(email: _email, password: _password);
-    user ??=
-        await registerWithEmail.execute(email: _email, password: _password);
     if (user != null) {
       Get.offAndToNamed(HomeScreen.id);
     } else {

@@ -21,4 +21,21 @@ class EnUs implements Translation {
   String get loginNewUserButton => 'Sign up now';
   @override
   String get loginTitle => 'Sign in';
+
+  @override
+  String get signUpFailTitle => 'Ops';
+  @override
+  String get signUpFailDescription => 'Sign up Error';
+  @override
+  String get signUpTitle => 'Create account';
+  @override
+  String get signUpEmail => 'Email';
+  @override
+  String get signUpEmailError => 'Invalid email';
+  @override
+  String get signUpPassword => 'Password';
+  @override
+  String get signUpPasswordError => 'Invalid password';
+  @override
+  String get signUpButton => 'Sign up';
 }

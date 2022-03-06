@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:netflix_clone_fiap/domain/usecases/login/register_with_email.dart';
+import 'package:netflix_clone_fiap/domain/usecases/signup/register_with_email.dart';
 
 class RemoteRegisterWithEmail extends RegisterWithEmail {
   RemoteRegisterWithEmail({
