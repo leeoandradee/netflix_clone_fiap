@@ -174,11 +174,21 @@ class LoginScreen extends StatelessWidget {
                                       },
                                     ),
                                   ),
-                                  child: Text(
-                                    R.string.loginButton,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  child: presenter.isLoading.value
+                                      ? Container(
+                                          width: 24,
+                                          height: 24,
+                                          child:
+                                              const CircularProgressIndicator(
+                                            color: Colors.white,
+                                            strokeWidth: 3,
+                                          ),
+                                        )
+                                      : Text(
+                                          R.string.loginButton,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                 ),
                               ),
                             ),
@@ -199,6 +209,7 @@ class LoginScreen extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 5),
                                 child: GestureDetector(
+                                  onTap: presenter.onSignUpButtonClick,
                                   child: Text(
                                     R.string.loginNewUserButton,
                                     style: const TextStyle(

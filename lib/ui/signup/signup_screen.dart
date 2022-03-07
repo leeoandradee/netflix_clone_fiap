@@ -16,7 +16,7 @@ class SignUpScreen extends StatelessWidget {
       if (show) {
         Get.snackbar(
           R.string.signUpFailTitle,
-          R.string.signUpFailDescription,
+          presenter.errorMessage.value,
           snackPosition: SnackPosition.BOTTOM,
           colorText: Colors.white,
         );
@@ -26,6 +26,13 @@ class SignUpScreen extends StatelessWidget {
 
     return Scaffold(
         backgroundColor: Colors.black,
+        appBar: AppBar(
+          backgroundColor: const Color(0x44000000),
+          elevation: 0,
+          iconTheme: const IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+        ),
         body: SafeArea(
             child: SingleChildScrollView(
                 child: Padding(
@@ -217,11 +224,21 @@ class SignUpScreen extends StatelessWidget {
                                       },
                                     ),
                                   ),
-                                  child: Text(
-                                    R.string.signUpButton,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  child: presenter.isLoading.value
+                                      ? Container(
+                                          width: 24,
+                                          height: 24,
+                                          child:
+                                              const CircularProgressIndicator(
+                                            color: Colors.white,
+                                            strokeWidth: 3,
+                                          ),
+                                        )
+                                      : Text(
+                                          R.string.signUpButton,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                 ),
                               ),
                             ),

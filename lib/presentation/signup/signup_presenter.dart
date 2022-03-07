@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:netflix_clone_fiap/domain/usecases/signup/register_with_email.dart';
 import 'package:netflix_clone_fiap/ui/home/home_screen.dart';
+import 'package:netflix_clone_fiap/utils/strings/string_resource.dart';
 
 class SignUpPresenter extends GetxController {
   SignUpPresenter({
@@ -14,6 +16,8 @@ class SignUpPresenter extends GetxController {
   RxBool showPasswordInvalid = false.obs;
   RxBool signUpButtonIsEnabled = false.obs;
   RxBool showSignUpFailed = false.obs;
+  RxBool isLoading = false.obs;
+  RxString errorMessage = ''.obs;
 
   String _username = '';
   String _email = '';
@@ -48,13 +52,26 @@ class SignUpPresenter extends GetxController {
   }
 
   void onSignUp() async {
-    var user =
-        await registerWithEmail.execute(email: _email, password: _password);
+    try {
+      isLoading.value = true;
+      var user =
+          await registerWithEmail.execute(email: _email, password: _password);
 
-    if (user != null) {
-      Get.offAndToNamed(HomeScreen.id);
-    } else {
+      if (user != null) {
+        isLoading.value = false;
+        Get.offAndToNamed(HomeScreen.id);
+      } else {
+        isLoading.value = false;
+        showSignUpFailed.value = true;
+      }
+    } on FirebaseAuthException catch (error) {
+      isLoading.value = false;
       showSignUpFailed.value = true;
+      if (error.message != null) {
+        errorMessage.value = error.message.toString();
+      } else {
+        errorMessage.value = R.string.signUpFailDescription;
+      }
     }
   }
 }

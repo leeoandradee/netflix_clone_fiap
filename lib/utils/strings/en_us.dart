@@ -4,7 +4,7 @@ class EnUs implements Translation {
   @override
   String get loginFailTitle => 'Ops';
   @override
-  String get loginFailDescription => 'Login Error';
+  String get loginFailDescription => 'Invalid email or password';
   @override
   String get loginEmail => 'Email';
   @override

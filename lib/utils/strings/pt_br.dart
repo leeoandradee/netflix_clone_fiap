@@ -4,7 +4,7 @@ class PtBr implements Translation {
   @override
   String get loginFailTitle => 'Ops';
   @override
-  String get loginFailDescription => 'Erro ao realizar login';
+  String get loginFailDescription => 'Email ou senha inválido';
   @override
   String get loginEmail => 'Email';
   @override

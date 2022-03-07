@@ -18,7 +18,7 @@ class RemoteRegisterWithEmail extends RegisterWithEmail {
       );
       return userCredential.user;
     } catch (error) {
-      return null;
+      rethrow;
     }
   }
 }

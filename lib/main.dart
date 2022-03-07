@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: LoginScreen.id,
+      initialRoute: SplashScreen.id,
       getPages: [
         GetPage(name: SplashScreen.id, page: makeSplashScreen),
         GetPage(name: LoginScreen.id, page: makeLoginScreen),
