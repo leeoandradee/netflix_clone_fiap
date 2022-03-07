@@ -1,5 +1,7 @@
 # netflix_clone_fiap
 
+![plot](./screenshot1.png)
+
 Project was created to study Flutter development.
 The project was builded following Clean Code Architecture, also using GetX library to deal with routes, lifecycle and depdendency injection.
 
